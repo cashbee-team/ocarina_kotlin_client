@@ -1,0 +1,141 @@
+openapi: 3.0.0
+info:
+  title: Ocarina API
+  version: 1.0.0
+  description: OptiCAl Recognition of IdeNtity pApers
+servers:
+  - url: https://api-hyrule.cashbee.io
+    description: Production server
+paths:
+  /documents:
+    post:
+      description: Ask for a document identification
+      operationId: documentIdentification
+      tags: ['Documents']
+      requestBody:
+        description: Document metadata
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DocumentsIdentificationRequest'
+      responses:
+        200:
+          description: Success asking for document identification
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DocumentIdentificationResponse'
+  /documents/direct_upload:
+    post:
+      description: Request upload link
+      operationId: documentsDirectUpload
+      tags: ['Documents']
+      responses:
+        200:
+          description: Url and uuid of document
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DirectUploadResponse'
+  /documents/{uuid}:
+    get:
+      description: Get document identification information
+      operationId: documentIdentificationInfo
+      tags: ['Documents']
+      parameters:
+        - name: uuid
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+      responses:
+        200:
+          description: The identification information of the document
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DocumentIdentificationInfo'
+components:
+  schemas:
+    DocumentsIdentificationRequest:
+      type: object
+      properties:
+        uuid:
+          description: UUID from direct upload request (optional)
+          type: string
+          format: uuid
+        source_url:
+          description: Source URL for hosted file upload (optional)
+          type: string
+          format: uri
+    DocumentIdentificationResponse:
+      type: object
+      properties:
+        uuid:
+          type: string
+          format: uuid
+    DirectUploadResponse:
+      type: object
+      properties:
+        url:
+          type: string
+          format: uri
+        uuid:
+          type: string
+          format: uuid
+    DocumentIdentificationInfo:
+      type: object
+      properties:
+        uuid:
+          type: string
+          format: uuid
+        status:
+          type: string
+          enum:
+            - pending
+            - processing
+            - validated
+            - rejected
+            - failed
+        score:
+          type: number
+          format: double
+        metadata:
+          type: object
+          properties:
+            id_type:
+              type: string
+              enum:
+                - passport
+                - id_card
+            first_name:
+              type: string
+            middle_names:
+              type: string
+            last_name:
+              type: string
+            birth_date:
+              type: string
+              format: date
+            birth_place:
+              type: string
+            height:
+              type: integer
+            serial_number:
+              type: string
+            gender:
+              type: string
+            eyes_color:
+              description: Optional if id_type is not a passport
+              type: string
+            address:
+              type: string
+            delivered_by:
+              type: string
+            delivered_date:
+              type: string
+              format: date
+            valid_until:
+              type: string
+              format: date
