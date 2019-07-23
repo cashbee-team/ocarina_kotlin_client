@@ -49,7 +49,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 
@@ -96,7 +96,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 
@@ -105,7 +105,7 @@ No authorization required
 
 <a name="documentsDirectUpload"></a>
 # **documentsDirectUpload**
-> DirectUploadResponse documentsDirectUpload()
+> DirectUploadResponse documentsDirectUpload(directUploadRequest)
 
 
 
@@ -118,8 +118,9 @@ Request upload link
 //import fr.cashbee.ocarina.client.models.*
 
 val apiInstance = DocumentsApi()
+val directUploadRequest : DirectUploadRequest =  // DirectUploadRequest | Size in bytes and checksum of the document
 try {
-    val result : DirectUploadResponse = apiInstance.documentsDirectUpload()
+    val result : DirectUploadResponse = apiInstance.documentsDirectUpload(directUploadRequest)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling DocumentsApi#documentsDirectUpload")
@@ -131,7 +132,10 @@ try {
 ```
 
 ### Parameters
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **directUploadRequest** | [**DirectUploadRequest**](DirectUploadRequest.md)| Size in bytes and checksum of the document | [optional]
 
 ### Return type
 
@@ -139,10 +143,10 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-No authorization required
+[bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 

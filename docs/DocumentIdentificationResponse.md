@@ -4,7 +4,9 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**uuid** | [**java.util.UUID**](java.util.UUID.md) |  |  [optional]
+**id** | **kotlin.Long** |  |  [optional]
+**result** | **kotlin.String** |  |  [optional]
+**category** | **kotlin.String** |  |  [optional]
 
 
 

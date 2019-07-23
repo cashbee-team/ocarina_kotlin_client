@@ -11,6 +11,7 @@
 */
 package fr.cashbee.ocarina.client.apis
 
+import fr.cashbee.ocarina.client.models.DirectUploadRequest
 import fr.cashbee.ocarina.client.models.DirectUploadResponse
 import fr.cashbee.ocarina.client.models.DocumentIdentificationInfo
 import fr.cashbee.ocarina.client.models.DocumentIdentificationResponse
@@ -95,11 +96,12 @@ class DocumentsApi(basePath: kotlin.String = "https://api-hyrule.cashbee.io") : 
     /**
     * 
     * Request upload link
+    * @param directUploadRequest Size in bytes and checksum of the document (optional)
     * @return DirectUploadResponse
     */
     @Suppress("UNCHECKED_CAST")
-    fun documentsDirectUpload() : DirectUploadResponse {
-        val localVariableBody: kotlin.Any? = null
+    fun documentsDirectUpload(directUploadRequest: DirectUploadRequest?) : DirectUploadResponse {
+        val localVariableBody: kotlin.Any? = directUploadRequest
         val localVariableQuery: MultiValueMap = mapOf()
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         val localVariableConfig = RequestConfig(

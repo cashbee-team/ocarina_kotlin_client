@@ -43,6 +43,7 @@ Class | Method | HTTP request | Description
 <a name="documentation-for-models"></a>
 ## Documentation for Models
 
+ - [fr.cashbee.ocarina.client.models.DirectUploadRequest](docs/DirectUploadRequest.md)
  - [fr.cashbee.ocarina.client.models.DirectUploadResponse](docs/DirectUploadResponse.md)
  - [fr.cashbee.ocarina.client.models.DocumentIdentificationInfo](docs/DocumentIdentificationInfo.md)
  - [fr.cashbee.ocarina.client.models.DocumentIdentificationInfoMetadata](docs/DocumentIdentificationInfoMetadata.md)
@@ -53,4 +54,8 @@ Class | Method | HTTP request | Description
 <a name="documentation-for-authorization"></a>
 ## Documentation for Authorization
 
-All endpoints do not require authorization.
+<a name="bearerAuth"></a>
+### bearerAuth
+
+- **Type**: HTTP basic authentication
+

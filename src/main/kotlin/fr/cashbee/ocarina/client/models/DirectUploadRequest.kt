@@ -15,17 +15,14 @@ package fr.cashbee.ocarina.client.models
 import com.squareup.moshi.Json
 /**
  * 
- * @param id 
- * @param result 
- * @param category 
+ * @param size 
+ * @param contentMd5 
  */
-data class DocumentIdentificationResponse (
-    @Json(name = "id")
-    val id: kotlin.Long? = null,
-    @Json(name = "result")
-    val result: kotlin.String? = null,
-    @Json(name = "category")
-    val category: kotlin.String? = null
+data class DirectUploadRequest (
+    @Json(name = "size")
+    val size: kotlin.Long? = null,
+    @Json(name = "content_md5")
+    val contentMd5: kotlin.String? = null
 ) {
 
 }

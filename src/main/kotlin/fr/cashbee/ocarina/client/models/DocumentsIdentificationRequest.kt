@@ -16,15 +16,17 @@ import com.squareup.moshi.Json
 /**
  * 
  * @param uuid UUID from direct upload request (optional)
- * @param sourceUrl Source URL for hosted file upload (optional)
+ * @param filename 
+ * @param contentType 
  */
 data class DocumentsIdentificationRequest (
     /* UUID from direct upload request (optional) */
     @Json(name = "uuid")
     val uuid: java.util.UUID? = null,
-    /* Source URL for hosted file upload (optional) */
-    @Json(name = "source_url")
-    val sourceUrl: kotlin.String? = null
+    @Json(name = "filename")
+    val filename: kotlin.String? = null,
+    @Json(name = "content_type")
+    val contentType: kotlin.String? = null
 ) {
 
 }
