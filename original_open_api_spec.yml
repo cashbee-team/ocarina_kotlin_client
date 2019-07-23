@@ -30,6 +30,12 @@ paths:
       description: Request upload link
       operationId: documentsDirectUpload
       tags: ['Documents']
+      requestBody:
+        description: Size in bytes and checksum of the document
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DirectUploadRequest'
       responses:
         200:
           description: Url and uuid of document
@@ -58,6 +64,14 @@ paths:
                 $ref: '#/components/schemas/DocumentIdentificationInfo'
 components:
   schemas:
+    DirectUploadRequest:
+      type: object
+      properties:
+        size:
+          type: integer
+          format: int64
+        content_md5:
+          type: string
     DocumentsIdentificationRequest:
       type: object
       properties:
@@ -65,20 +79,31 @@ components:
           description: UUID from direct upload request (optional)
           type: string
           format: uuid
-        source_url:
-          description: Source URL for hosted file upload (optional)
+        filename:
+          type: string
+        content_type:
           type: string
     DocumentIdentificationResponse:
       type: object
       properties:
+        id:
+          type: integer
+          format: int64
         uuid:
           type: string
           format: uuid
+        filename:
+          type: string
+        content_type:
+          type: string
+        result:
+          type: string
     DirectUploadResponse:
       type: object
       properties:
         url:
           type: string
+          format: uri
         uuid:
           type: string
           format: uuid
