@@ -20,7 +20,7 @@ import com.squareup.moshi.Json
  */
 data class DirectUploadResponse (
     @Json(name = "url")
-    val url: java.net.URI? = null,
+    val url: kotlin.String? = null,
     @Json(name = "uuid")
     val uuid: java.util.UUID? = null
 ) {

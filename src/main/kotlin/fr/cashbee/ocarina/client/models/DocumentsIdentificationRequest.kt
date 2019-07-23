@@ -24,7 +24,7 @@ data class DocumentsIdentificationRequest (
     val uuid: java.util.UUID? = null,
     /* Source URL for hosted file upload (optional) */
     @Json(name = "source_url")
-    val sourceUrl: java.net.URI? = null
+    val sourceUrl: kotlin.String? = null
 ) {
 
 }
