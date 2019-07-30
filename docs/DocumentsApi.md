@@ -49,7 +49,9 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[bearerAuth](../README.md#bearerAuth)
+
+Configure bearerAuth:
+    ApiClient.accessToken = ""
 
 ### HTTP request headers
 
@@ -96,7 +98,9 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[bearerAuth](../README.md#bearerAuth)
+
+Configure bearerAuth:
+    ApiClient.accessToken = ""
 
 ### HTTP request headers
 
@@ -143,7 +147,9 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[bearerAuth](../README.md#bearerAuth)
+
+Configure bearerAuth:
+    ApiClient.accessToken = ""
 
 ### HTTP request headers
 
