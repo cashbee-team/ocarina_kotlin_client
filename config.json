@@ -2,5 +2,5 @@
   "groupId": "fr.cashbee.ocarina",
   "artifactId": "ocarinaclient",
   "packageName": "fr.cashbee.ocarina.client",
-  "artifactVersion": "1.1.0"
+  "artifactVersion": "1.2.0"
 }
